@@ -22,6 +22,7 @@
   border-radius: 0.3rem;
   letter-spacing: 0.06rem;
   transition: 0.2s;
+  cursor: pointer;
 }
 .general-btn:hover, .general-btn:focus{
   background-color: #16a085;
@@ -62,7 +63,7 @@
   text-align: left;
 }
 #found-lockers-list{
-  max-height: 18rem;
+  max-height: 13rem;
   margin-top: 3rem;
   background-color: #f1f1f1;
   border-radius: 0.2rem;
@@ -74,9 +75,10 @@
   padding: 0.6rem 1rem;
   justify-content: space-between;
   align-items: center;
+  text-transform: capitalize;
 }
 .found-locker:not(last-child){
-  border-bottom: 0.1rem solid #e7e7e7;
+  border-bottom: 0.06rem solid #e7e7e7;
 }
 .found-locker-number{
   flex-basis: 2rem;
