@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro'), local('SourceSansPro'), url(fonts/SourceSansPro-Regular.ttf) format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+html, body{
+  height: 100%;
+  font-size: 20px;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  margin: 0;
+}
+button{
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+input{
+  font-size: 1rem;
+  border: none;
+  border-bottom: solid 0.08rem #16a085;
+  transition: border-color 0.2s;
+}
+input:focus{
+  border-color: #1cd4b0;
+  outline: none;
+}
+label{
+  margin-right: 0.5rem;
+}
+h1, h2, h3{
+  margin: 0;
+  padding: 0;
+}
+h1{
+  font-size: 1.8rem;
+  color: #16a085;
+}
+
+#content{
+  min-width: 600px;
+  flex: 1;
+  padding: 0.8rem 1.3rem;
+  box-shadow: 0px 0px 3px #b3b3b3;
+}

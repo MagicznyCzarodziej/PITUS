@@ -1,0 +1,14 @@
+{
+  "name": "pitus",
+  "version": "1.0.0",
+  "description": "Program Indeksujący Tylko Uczniowskie Szafki",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Przemyslaw Pitus",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.11"
+  }
+}

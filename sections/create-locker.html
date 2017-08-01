@@ -1,0 +1,12 @@
+<template class="template">
+  <section class="section" id="create-locker-section">
+    <header class="section-header">
+    <h1>Dodaj nowe szafki</h1>
+    </header>
+    <div class="workplace">
+      Utwórz szafki z numerami od <input type="text" name="from" class="input-locker-number" id="create-locker-from" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      do <input type="text" name="to" class="input-locker-number" id="create-locker-to" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      <button type="button" name="create-locker-btn" class="general-btn" id="create-locker-btn"><img src="img/check.svg" height="25" width="25">Zatwierdź</button>
+    </div>
+  </section>
+</template>

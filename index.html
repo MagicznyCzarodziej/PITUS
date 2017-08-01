@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PITUS - Program Indeksujacy Tylko Uczniowskie Szafki</title>
+
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/section.css">
+
+  <link rel="import" href="./sections/default.html">
+  <link rel="import" href="./sections/manage-locker.html">
+  <link rel="import" href="./sections/find-locker.html">
+  <link rel="import" href="./sections/create-locker.html">
+  <link rel="import" href="./sections/manage-user.html">
+  <link rel="import" href="./sections/print-raports.html">
+  <link rel="import" href="./sections/change-year.html">
+</head>
+<body>
+  <nav id="nav-main">
+    <div class="nav-item">
+      <button type="button" class="nav-button" data-section="manage-locker" tabIndex="-1">
+        <img src="img/box.svg" height="20" width="20">Zarządzanie szafką
+      </button>
+    </div>
+    <div class="nav-item">
+      <button type="button" class="nav-button nav-sub-button" data-section="find-locker" tabIndex="-1">
+        <img src="img/search.svg" height="16" width="16">Szukaj szafki
+      </button>
+    </div>
+    <div class="nav-item">
+      <button type="button" class="nav-button" data-section="create-locker" tabIndex="-1">
+        <img src="img/plus.svg" height="20" width="20">Tworzenie szafek
+      </button>
+    </div>
+    <div class="nav-item">
+      <button type="button" class="nav-button" data-section="manage-user" tabIndex="-1">
+        <img src="img/user.svg" height="20" width="20">Zarządzanie uczniem
+      </button>
+    </div>
+    <div class="nav-item">
+      <button type="button" class="nav-button" data-section="print-raports" tabIndex="-1">
+        <img src="img/printer.svg" height="20" width="20">Drukowanie raportów
+      </button>
+    </div>
+    <div class="nav-item">
+      <button type="button" class="nav-button" data-section="change-year" tabIndex="-1">
+        <img src="img/alert-triangle.svg" height="20" width="20">Zmiana rocznika
+      </button>
+    </div>
+  </nav>
+  <div id="content">
+    <!-- Append sections here -->
+  </div>
+
+  <script type="text/javascript">
+    window.$ = window.jQuery = require('./js/jquery-3.2.1.min.js');
+
+    require('./js/control');
+    require('./js/import-sections');
+    require('./js/nav');
+
+    require('./js/sections-scripts/find-locker');
+    require('./js/sections-scripts/create-locker');
+  </script>
+</body>
+</html>

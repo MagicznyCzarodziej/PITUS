@@ -1,0 +1,28 @@
+- znajdź ucznia (nr szafki, klasa, rocznik?)
+- edytuj ucznia (nazwisko, imie, klasa)
+- przenieś ucznia do innej szafki
+
+- znajdź szafkę (nr, uczniowie)
+- dodaj szafkę (nową - numer)
+- usuń szafkę
+- edytuj szafkę:
+  - dodaj ucznia do szafki
+  - usuń ucznia z szafki
+- opróżnij szafkę
+
+- Wyszukaj wszystkich uczniów z danej klasy
+
+- Zmień rok (klasa o jedną wyżej)
+  - omiń tych którzy nie zdali // można wyświetlic liste wszystkich uczniów i wybrac tych którzy nie zdali
+
+///////////////////
+Funkcje:
+
+Zarządzaj szafką
+ - Znajdź szafkę
+Utwórz szafki
+Usuń szafki
+
+Zarządzaj uczniem
+Wydrukuj zestawienia i listy
+Zmiana rocznika

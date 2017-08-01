@@ -1,0 +1,23 @@
+<template class="template">
+  <section class="section" id="manage-locker-section">
+    <header class="section-header">
+      <h1>Zarządzaj szafką</h1>
+    </header>
+    <div class="workplace">
+      <label for="manage-locker-number">Numer szafki:</label><input type="text" name="manage-locker-number" id="manage-locker-number" class="input-locker-number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br>
+      <div class="owners">
+        <div class="owner-inputs">
+          <label for="manage-locker-owner1-surname">Nazwisko:</label><input type="text" name="manage-locker-owner1-surname" class="input-locker-surname"><br>
+          <label for="manage-locker-owner1-name">Imię:</label><input type="text" name="manage-locker-owner1-name" class="input-locker-name"><br>
+          <label for="manage-locker-owner1-class">Klasa:</label><input type="text" name="manage-locker-owner1-class" class="input-locker-class">
+        </div>
+        <div class="owner-inputs">
+          <label for="manage-locker-owner2-surname">Nazwisko:</label><input type="text" name="manage-locker-owner2-surname" class="input-locker-surname"><br>
+          <label for="manage-locker-owner2-name">Imię:</label><input type="text" name="manage-locker-owner2-name" class="input-locker-name"><br>
+          <label for="manage-locker-owner2-class">Klasa:</label><input type="text" name="manage-locker-owner2-class" class="input-locker-class">
+        </div>
+      </div>
+      <button type="button" name="manage-locker-btn" class="general-btn" id="manage-locker-btn"><img src="img/check.svg" height="25" width="25">Zatwierdź</button>
+    </div>
+  </section>
+</template>
