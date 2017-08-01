@@ -5,7 +5,8 @@ function loadFile() {
   console.log("Wczytywanie pliku");
   if(fs.existsSync(filename)){
     let data = fs.readFileSync(filename, 'utf8');
-    return JSON.parse(data);
+    if(data) return JSON.parse(data);
+    else return [];
   }else{
     console.log("Plik nie istnieje. Utworzono nowy plik.");
     fs.writeFile(filename, '', (err) => {

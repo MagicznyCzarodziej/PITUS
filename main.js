@@ -10,6 +10,14 @@ function createWindow() {
    protocol: 'file:',
    slashes: true
   }));
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
 app.on('ready', createWindow);
+
+app.on('window-all-closed', () => {
+  app.quit();
+});
