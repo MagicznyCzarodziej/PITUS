@@ -36,6 +36,8 @@ function loadOwners(suggestion) {
 
 $('#manage-locker-btn').on('click', (event) => {
   $(event.target).blur();
+
+  //Find locker id by number
   let lockerNumber;
   for(let i = 0; i < lockers.length; i++){
     if(lockers[i].nr == number){
@@ -44,21 +46,17 @@ $('#manage-locker-btn').on('click', (event) => {
     }
   }
 
-  if(isFilled(0)){
-    if(!lockers[lockerNumber].owners.length) lockers[lockerNumber].owners.push({});
-    let ownerObj = lockers[lockerNumber].owners[0];
-    ownerObj.surname = $('#manage-locker-owner1-surname').val();
-    ownerObj.name = $('#manage-locker-owner1-name').val();
-    ownerObj.class = $('#manage-locker-owner1-class').val();
-  }
+  //Save changes to lockers variable
+  let ownerObj;
+  ownerObj = lockers[lockerNumber].owners[0];
+  ownerObj.surname = $('#manage-locker-owner1-surname').val();
+  ownerObj.name = $('#manage-locker-owner1-name').val();
+  ownerObj.class = $('#manage-locker-owner1-class').val();
 
-  if(isFilled(1)){
-    if(!lockers[lockerNumber].owners.length) lockers[lockerNumber].owners.push({});
-    let ownerObj = lockers[lockerNumber].owners[1];
-    ownerObj.surname = $('#manage-locker-owner2-surname').val();
-    ownerObj.name = $('#manage-locker-owner2-name').val();
-    ownerObj.class = $('#manage-locker-owner2-class').val();
-  }
+  ownerObj = lockers[lockerNumber].owners[1];
+  ownerObj.surname = $('#manage-locker-owner2-surname').val();
+  ownerObj.name = $('#manage-locker-owner2-name').val();
+  ownerObj.class = $('#manage-locker-owner2-class').val();
 
   storage.saveFile(lockers);
   showInfo('success', 'Zapisano!');

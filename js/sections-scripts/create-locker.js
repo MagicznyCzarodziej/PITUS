@@ -9,7 +9,7 @@ $('#create-locker-btn').on('click', function () {
     let createdCounter = 0;
     for(let i = 0; i < howMany; i++){
       if(!lockerExsists(from+i)){
-        lockers.push({"nr": from+i, "owners":[]});
+        lockers.push({"nr": from+i, "owners":[{},{}]});
         createdCounter++;
       }
     }

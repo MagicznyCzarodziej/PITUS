@@ -28,13 +28,21 @@ $('#find-locker-inputs').keyup(() => {
   if(foundLockers.length > 0) $('#lockers-not-found').hide();
   else $('#lockers-not-found').fadeIn(100);
 
+  function sortByNr(a, b){
+    return ((a.nr < b.nr) ? -1 : ((a.nr > b.nr) ? 1 : 0));
+  }
+
+  foundLockers.sort(sortByNr);
+
   $('#found-lockers-list').html("");
   for(let locker of foundLockers){
-    let lockerDOM = $(`<div class="found-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
-    if(locker.owners.length == 0) lockerDOM.addClass('empty-locker');
+    let lockerDOM = $(`<div class="found-locker empty-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
     for(let owner of locker.owners){
-      let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} ${owner.class}</div>`);
-      lockerDOM.append(ownerDOM);
+      if(!$.isEmptyObject(owner)){
+        let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} ${owner.class}</div>`);
+        lockerDOM.removeClass('empty-locker');
+        lockerDOM.append(ownerDOM);
+      }
     }
     lockerDOM.append(`<button type="button" name="edit-locker" data-number=${locker.nr} class="general-btn">Edytuj</button>`);
     $('#found-lockers-list').append(lockerDOM);
