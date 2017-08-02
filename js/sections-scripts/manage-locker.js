@@ -1,25 +1,24 @@
 const jsonq = require('json-query');
 
-//Add third owner
-$('#add-next-owner-btn').on('click', () => {
-  $('#add-next-owner-btn').hide();
-  $('#third-owner').show();
+let number; //Selected locker number
+
+//Reload autocomplete suggestions when opening section
+$('#manage-locker-section').on('click', () => {
+  let numbers = [];
+  for(let locker of lockers){
+    numbers.push({value: String(locker.nr), data: locker.nr});
+  }
+
+  $("#manage-locker-number").autocomplete({
+    lookup: numbers,
+    autoSelectFirst: true,
+    onSelect: loadOwners
+  });
 });
 
-//Autocomplete
-let numbers = [];
-for(let locker of lockers){
-  numbers.push({value: String(locker.nr), data: locker.nr});
-}
-
-$("#manage-locker-number").autocomplete({
-  lookup: numbers,
-  autoSelectFirst: true,
-  onSelect: loadOwners
-});
 
 function loadOwners(suggestion) {
-  let number = suggestion.data;
+  number = suggestion.data;
   let owners = jsonq(`[nr=${number}]`, {data: lockers}).value.owners;
 
   if(owners[0]){
@@ -33,21 +32,50 @@ function loadOwners(suggestion) {
     $('#manage-locker-owner2-name').val(owners[1].name);
     $('#manage-locker-owner2-class').val(owners[1].class);
   } else $('.manage-locker-owner2').val("");
-
-  if(owners[2]){
-    $('#add-next-owner-btn').hide();
-    $('#third-owner').fadeIn(200);
-    $('#manage-locker-owner3-surname').val(owners[2].surname);
-    $('#manage-locker-owner3-name').val(owners[2].name);
-    $('#manage-locker-owner3-class').val(owners[2].class);
-  } else{
-    $('#add-next-owner-btn').show();
-    $('#third-owner').hide();
-    $('.manage-locker-owner3').val("");
- }
 }
 
 $('#manage-locker-btn').on('click', (event) => {
   $(event.target).blur();
+  let lockerNumber;
+  for(let i = 0; i < lockers.length; i++){
+    if(lockers[i].nr == number){
+      lockerNumber = i;
+      break;
+    }
+  }
 
+  if(isFilled(0)){
+    if(!lockers[lockerNumber].owners.length) lockers[lockerNumber].owners.push({});
+    let ownerObj = lockers[lockerNumber].owners[0];
+    ownerObj.surname = $('#manage-locker-owner1-surname').val();
+    ownerObj.name = $('#manage-locker-owner1-name').val();
+    ownerObj.class = $('#manage-locker-owner1-class').val();
+  }
+
+  if(isFilled(1)){
+    if(!lockers[lockerNumber].owners.length) lockers[lockerNumber].owners.push({});
+    let ownerObj = lockers[lockerNumber].owners[1];
+    ownerObj.surname = $('#manage-locker-owner2-surname').val();
+    ownerObj.name = $('#manage-locker-owner2-name').val();
+    ownerObj.class = $('#manage-locker-owner2-class').val();
+  }
+
+  storage.saveFile(lockers);
+  showInfo('success', 'Zapisano!');
 });
+
+function isFilled (owner) {
+  return $(`#manage-locker-owner${owner+1}-surname`).val() &&
+        $(`#manage-locker-owner${owner+1}-name`).val() &&
+        $(`#manage-locker-owner${owner+1}-class`).val();
+}
+
+function showInfo(type, text) {
+  $(`.msg.${type}`).remove();
+  const infoDOM = $(`<div class="msg ${type}">${text}</div>`);
+  $('#manage-locker-section .workplace').append(infoDOM);
+  $(infoDOM).delay(1000).fadeOut(1000);
+  setTimeout(() => {
+    $(infoDOM).remove();
+  },2000);
+}

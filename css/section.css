@@ -39,6 +39,8 @@
   margin-right: 0.5rem;
 }
 
+/* This was "add third owner btn"
+
 .mini-btn{
   padding: 0 0.4rem 0.2rem 0.4rem;
   font-size: 0.8rem;
@@ -49,7 +51,7 @@
 }
 .mini-btn:hover{
   border-bottom: 0.07rem solid #16a085;
-}
+}*/
 
 .input-locker-number,
 .input-locker-class{
