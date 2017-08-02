@@ -49,14 +49,14 @@ $('#manage-locker-btn').on('click', (event) => {
   //Save changes to lockers variable
   let ownerObj;
   ownerObj = lockers[lockerNumber].owners[0];
-  ownerObj.surname = $('#manage-locker-owner1-surname').val();
-  ownerObj.name = $('#manage-locker-owner1-name').val();
-  ownerObj.class = $('#manage-locker-owner1-class').val();
+  ownerObj.surname = $('#manage-locker-owner1-surname').val().toLowerCase();
+  ownerObj.name = $('#manage-locker-owner1-name').val().toLowerCase();
+  ownerObj.class = $('#manage-locker-owner1-class').val().toLowerCase();
 
   ownerObj = lockers[lockerNumber].owners[1];
-  ownerObj.surname = $('#manage-locker-owner2-surname').val();
-  ownerObj.name = $('#manage-locker-owner2-name').val();
-  ownerObj.class = $('#manage-locker-owner2-class').val();
+  ownerObj.surname = $('#manage-locker-owner2-surname').val().toLowerCase();
+  ownerObj.name = $('#manage-locker-owner2-name').val().toLowerCase();
+  ownerObj.class = $('#manage-locker-owner2-class').val().toLowerCase();
 
   storage.saveFile(lockers);
   showInfo('success', 'Zapisano!');

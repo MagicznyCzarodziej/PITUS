@@ -39,7 +39,7 @@ $('#find-locker-inputs').keyup(() => {
     let lockerDOM = $(`<div class="found-locker empty-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
     for(let owner of locker.owners){
       if(!$.isEmptyObject(owner)){
-        let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} ${owner.class}</div>`);
+        let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} <span style="text-transform: uppercase;">${owner.class}</span></div>`);
         lockerDOM.removeClass('empty-locker');
         lockerDOM.append(ownerDOM);
       }
@@ -55,7 +55,7 @@ $('#find-locker-inputs').keyup(() => {
   function checkSurname() {
     return foundLockers.filter(locker => {
       for(let owner of locker.owners){
-        if(owner.surname.startsWith(surname)) return true;
+        if(owner.hasOwnProperty('surname') && owner.surname.startsWith(surname)) return true;
       }
       return false;
     });
@@ -64,7 +64,7 @@ $('#find-locker-inputs').keyup(() => {
   function checkName() {
     return foundLockers.filter(locker => {
       for(let owner of locker.owners){
-        if(owner.name.startsWith(name)) return true;
+        if(owner.hasOwnProperty('name') && owner.name.startsWith(name)) return true;
       }
       return false;
     });
@@ -73,7 +73,7 @@ $('#find-locker-inputs').keyup(() => {
   function checkClass() {
     return foundLockers.filter(locker => {
       for(let owner of locker.owners){
-        if(owner.class.startsWith(classCode)) return true;
+        if(owner.hasOwnProperty('class') && owner.class.startsWith(classCode)) return true;
       }
       return false;
     });
