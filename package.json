@@ -10,7 +10,7 @@
   "author": "Przemyslaw Pitus",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.6.11"
+    "electron": "^1.7.5"
   },
   "dependencies": {
     "json-query": "^2.2.2"

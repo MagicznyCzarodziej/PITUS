@@ -1,3 +1,3 @@
-const storage = require('./fileHandler.js');
+storage = require('./fileHandler.js');
 
 lockers = storage.loadFile();

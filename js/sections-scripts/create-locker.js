@@ -13,9 +13,11 @@ $('#create-locker-btn').on('click', function () {
         createdCounter++;
       }
     }
+    storage.saveFile(lockers);
+
     $('#create-locker-from').val("");
     $('#create-locker-to').val("");
-    showInfo('info', `Utworzonych szafek: ${createdCounter}`);
+    showInfo('success', `Utworzonych szafek: ${createdCounter}`);
   }
 });
 
@@ -24,8 +26,10 @@ function lockerExsists(nr) {
 }
 
 function showInfo(type, text) {
-  let infoDOM = $(`<div class="msg ${type}">${text}</div>`);
+  $(`.msg.${type}`).remove();
+  const infoDOM = $(`<div class="msg ${type}">${text}</div>`);
   $('#create-locker-section .workplace').append(infoDOM);
+  $(infoDOM).delay(1000).fadeOut(1000);
   setTimeout(() => {
     $(infoDOM).remove();
   },2000);

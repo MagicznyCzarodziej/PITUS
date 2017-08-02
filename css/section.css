@@ -7,7 +7,7 @@
 
 .section-header{
   padding-bottom: 0.5rem;
-  border-bottom: 0.08rem solid #d5d5d5;
+  border-bottom: 0.07rem solid #d5d5d5;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
@@ -18,19 +18,37 @@
 
 .general-btn{
   color: #16a085;
-  border: 0.13rem solid #16a085;
+  border: 0.12rem solid #16a085;
   border-radius: 0.3rem;
   letter-spacing: 0.06rem;
   transition: 0.2s;
   cursor: pointer;
 }
-.general-btn:hover, .general-btn:focus{
-  background-color: #16a085;
+.general-btn:hover,
+.general-btn:focus{
   color: #ffffff;
+  background-color: #16a085;
+}
+.general-btn:active{
+  background-color: #1cbe9e;
+  border: 0.12rem solid #1cbe9e;
+  transition: 0s;
 }
 .general-btn img{
   float: left;
   margin-right: 0.5rem;
+}
+
+.mini-btn{
+  padding: 0 0.4rem 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  color: #16a085;
+  cursor: pointer;
+  border-bottom: 0.07rem solid #fff;
+  transition: 0.15s;
+}
+.mini-btn:hover{
+  border-bottom: 0.07rem solid #16a085;
 }
 
 .input-locker-number,
@@ -50,6 +68,10 @@
   border-radius: 0.2rem;
 }
 .info{
+  color: #7f8c8d;
+  border: 0.05rem solid #7f8c8d;
+}
+.success{
   color: #16a085;
   border: 0.05rem solid #16a085;
 }
@@ -83,6 +105,9 @@
 .found-locker-number{
   flex-basis: 2rem;
 }
+.empty-locker{
+  background-color: #ededed;
+}
 
 /* Create locker section */
 #create-locker-btn{
@@ -90,13 +115,27 @@
 }
 
 /* Manage locker section */
-#manage-locker-btn{
-  width: 100%;
-  margin-top: 2rem;
+#manage-locker-number{
+  width: 3rem;
 }
 .owners{
   display: flex;
-  margin-top: 1rem;;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
   text-align: left;
   justify-content: space-around;
+}
+.owner-inputs{
+  margin-top: 2rem;
+}
+#manage-locker-btn{
+  width: 100%;
+  margin-top: 1rem;
+}
+.input-locker-surname,
+.input-locker-name{
+  text-transform: capitalize;
+}
+.input-locker-class{
+  text-transform: uppercase;
 }

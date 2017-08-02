@@ -1,5 +1,16 @@
 const jsonq = require('json-query');
 
+//Edit button
+$('#found-lockers-list').on('click', 'button', (event) => {
+  $(event.target).blur();
+  let number = $(event.target).attr('data-number');
+
+  $('#nav-main button[data-section="manage-locker"]').trigger('click');
+  $('#manage-locker-number').val(number);
+  $('#manage-locker-number').focus();
+});
+
+//Input any data
 $('#find-locker-inputs').keyup(() => {
   let number, surname, name, classCode;
   number = $('#find-locker-number').val();
@@ -14,14 +25,18 @@ $('#find-locker-inputs').keyup(() => {
   if(name) foundLockers = checkName();
   if(classCode) foundLockers = checkClass();
 
+  if(foundLockers.length > 0) $('#lockers-not-found').hide();
+  else $('#lockers-not-found').fadeIn(100);
+
   $('#found-lockers-list').html("");
   for(let locker of foundLockers){
     let lockerDOM = $(`<div class="found-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
+    if(locker.owners.length == 0) lockerDOM.addClass('empty-locker');
     for(let owner of locker.owners){
       let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} ${owner.class}</div>`);
       lockerDOM.append(ownerDOM);
     }
-    lockerDOM.append('<button type="button" name="edit-locker" class="general-btn">Edytuj</button>');
+    lockerDOM.append(`<button type="button" name="edit-locker" data-number=${locker.nr} class="general-btn">Edytuj</button>`);
     $('#found-lockers-list').append(lockerDOM);
   }
 

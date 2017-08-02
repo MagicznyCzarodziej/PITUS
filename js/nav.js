@@ -1,23 +1,23 @@
-document.getElementById('nav-main').addEventListener("click", function (event) {
-  if(event.target.dataset.section){
+$('#nav-main').on("click", (event) => {
+  if($(event.target).data('section')){
     hideAllSectionsAndDeselectButtons(event);
 
     //Highlight clicked button
-    event.target.classList.add('is-selected');
+    $(event.target).addClass('is-selected');
 
     //Show selected section
-    const sectionId = event.target.dataset.section + '-section'
-    document.getElementById(sectionId).classList.add('is-shown');
+    const sectionId = $(event.target).data('section') + '-section';
+    $(`#${sectionId}`).addClass('is-shown');
   }
 });
 
 function hideAllSectionsAndDeselectButtons(event) {
-  const sections = document.querySelectorAll('.section.is-shown');
+  const sections = $('.section.is-shown');
   Array.prototype.forEach.call(sections, function (section) {
-    section.classList.remove('is-shown');
+    $(section).removeClass('is-shown');
   });
-  const buttons = document.querySelectorAll('.nav-button.is-selected');
+  const buttons = $('.nav-button.is-selected');
   Array.prototype.forEach.call(buttons, function (button) {
-    button.classList.remove('is-selected');
+    $(button).removeClass('is-selected');
   });
 }

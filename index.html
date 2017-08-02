@@ -15,6 +15,7 @@
   <link rel="import" href="./sections/manage-user.html">
   <link rel="import" href="./sections/print-raports.html">
   <link rel="import" href="./sections/change-year.html">
+
 </head>
 <body>
   <nav id="nav-main">
@@ -53,15 +54,19 @@
     <!-- Append sections here -->
   </div>
 
-  <script type="text/javascript">
+  <script>
     window.$ = window.jQuery = require('./js/jquery-3.2.1.min.js');
-
+  </script>
+  <script src="./js/jquery.autocomplete.js"></script>
+  <script>
     require('./js/control');
     require('./js/import-sections');
     require('./js/nav');
 
+    require('./js/sections-scripts/manage-locker');
     require('./js/sections-scripts/find-locker');
     require('./js/sections-scripts/create-locker');
   </script>
+
 </body>
 </html>
