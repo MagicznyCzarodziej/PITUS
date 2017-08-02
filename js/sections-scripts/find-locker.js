@@ -48,6 +48,9 @@ $('#find-locker-inputs').keyup(() => {
     $('#found-lockers-list').append(lockerDOM);
   }
 
+  //Select lockers to show
+  changeVisibleLockers();
+
   function checkNumber() {
     return jsonq(`[*nr~/^${number}/]`, {data: lockers, allowRegexp: true}).value;
   }
@@ -79,3 +82,19 @@ $('#find-locker-inputs').keyup(() => {
     });
   }
 });
+
+$('.find-type').on('click', changeVisibleLockers);
+
+function changeVisibleLockers() {
+  let type = $('input[name="find-type"]:checked').val();
+  if(type == 'empty'){
+    $('.found-locker:not(.empty-locker)').hide();
+    $('.empty-locker').show();
+  }else if (type == 'not-empty') {
+    $('.empty-locker').hide();
+    $('.found-locker:not(.empty-locker)').show();
+  }else{
+    $('.found-locker:not(.empty-locker)').show();
+    $('.empty-locker').show();
+  }
+}

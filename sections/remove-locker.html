@@ -1,0 +1,12 @@
+<template class="template">
+  <section class="section" id="remove-locker-section">
+    <header class="section-header">
+      <h1>Usuń szafki</h1>
+    </header>
+    <div class="workplace">
+      Usuń szafki z numerami od <input type="text" name="from" class="input-locker-number" id="remove-locker-from" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      do <input type="text" name="to" class="input-locker-number" id="remove-locker-to" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      <button type="button" name="remove-locker-btn" class="general-btn" id="remove-locker-btn"><img src="img/remove.svg" height="25" width="25">Usuń</button>
+    </div>
+  </section>
+</template>

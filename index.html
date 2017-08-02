@@ -12,7 +12,7 @@
   <link rel="import" href="./sections/manage-locker.html">
   <link rel="import" href="./sections/find-locker.html">
   <link rel="import" href="./sections/create-locker.html">
-  <link rel="import" href="./sections/manage-user.html">
+  <link rel="import" href="./sections/remove-locker.html">
   <link rel="import" href="./sections/print-raports.html">
   <link rel="import" href="./sections/change-year.html">
 
@@ -30,15 +30,15 @@
       </button>
     </div>
     <div class="nav-item">
-      <button type="button" class="nav-button" data-section="create-locker" tabIndex="-1">
+      <button type="button" class="nav-button nav-sub-button" data-section="create-locker" tabIndex="-1">
         <img src="img/plus.svg" height="20" width="20">Tworzenie szafek
       </button>
     </div>
-    <!-- <div class="nav-item">
-      <button type="button" class="nav-button" data-section="manage-user" tabIndex="-1">
-        <img src="img/user.svg" height="20" width="20">Zarządzanie uczniem
+    <div class="nav-item">
+      <button type="button" class="nav-button nav-sub-button" data-section="remove-locker" tabIndex="-1">
+        <img src="img/remove.svg" height="20" width="20">Usuwanie szafek
       </button>
-    </div> -->
+    </div>
     <div class="nav-item">
       <button type="button" class="nav-button" data-section="print-raports" tabIndex="-1">
         <img src="img/printer.svg" height="20" width="20">Drukowanie raportów
@@ -66,6 +66,7 @@
     require('./js/sections-scripts/manage-locker');
     require('./js/sections-scripts/find-locker');
     require('./js/sections-scripts/create-locker');
+    require('./js/sections-scripts/remove-locker');
   </script>
 
 </body>

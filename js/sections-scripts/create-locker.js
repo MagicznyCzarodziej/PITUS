@@ -5,11 +5,11 @@ $('#create-locker-btn').on('click', function () {
   if(isNaN(from) || isNaN(to) || from > to || from < 0 || to < 0){
     showInfo('error', 'Podaj prawidłowy zakres!');
   }else{
-    let howMany = to - from + 1;
+    // let howMany = to - from + 1;
     let createdCounter = 0;
-    for(let i = 0; i < howMany; i++){
-      if(!lockerExsists(from+i)){
-        lockers.push({"nr": from+i, "owners":[{},{}]});
+    for(let i = from; i <= to; i++){
+      if(!lockerExsists(i)){
+        lockers.push({"nr": i, "owners":[{},{}]});
         createdCounter++;
       }
     }
