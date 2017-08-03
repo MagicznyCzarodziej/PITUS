@@ -3,7 +3,7 @@ $('#create-locker-btn').on('click', function () {
   let from = parseInt($('#create-locker-from').val());
   let to = parseInt($('#create-locker-to').val());
   if(isNaN(from) || isNaN(to) || from > to || from < 0 || to < 0){
-    showInfo('error', 'Podaj prawidłowy zakres!');
+    showInfo('create-locker', 'error', 'Podaj prawidłowy zakres!');
   }else{
     // let howMany = to - from + 1;
     let createdCounter = 0;
@@ -14,23 +14,14 @@ $('#create-locker-btn').on('click', function () {
       }
     }
     storage.saveFile(lockers);
+    updateStats();
 
     $('#create-locker-from').val("");
     $('#create-locker-to').val("");
-    showInfo('success', `Utworzonych szafek: ${createdCounter}`);
+    showInfo('create-locker', 'success', `Utworzonych szafek: ${createdCounter}`);
   }
 });
 
 function lockerExsists(nr) {
   return lockers.find(obj => obj.nr == nr) != undefined ? true : false;
-}
-
-function showInfo(type, text) {
-  $(`.msg.${type}`).remove();
-  const infoDOM = $(`<div class="msg ${type}">${text}</div>`);
-  $('#create-locker-section .workplace').append(infoDOM);
-  $(infoDOM).delay(1000).fadeOut(1000);
-  setTimeout(() => {
-    $(infoDOM).remove();
-  },2000);
 }

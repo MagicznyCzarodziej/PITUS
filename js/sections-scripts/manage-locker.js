@@ -59,21 +59,13 @@ $('#manage-locker-btn').on('click', (event) => {
   ownerObj.class = $('#manage-locker-owner2-class').val().toLowerCase();
 
   storage.saveFile(lockers);
-  showInfo('success', 'Zapisano!');
+  updateStats();
+
+  showInfo('manage-locker', 'success', 'Zapisano!');
 });
 
 function isFilled (owner) {
   return $(`#manage-locker-owner${owner+1}-surname`).val() &&
         $(`#manage-locker-owner${owner+1}-name`).val() &&
         $(`#manage-locker-owner${owner+1}-class`).val();
-}
-
-function showInfo(type, text) {
-  $(`.msg.${type}`).remove();
-  const infoDOM = $(`<div class="msg ${type}">${text}</div>`);
-  $('#manage-locker-section .workplace').append(infoDOM);
-  $(infoDOM).delay(1000).fadeOut(1000);
-  setTimeout(() => {
-    $(infoDOM).remove();
-  },2000);
 }

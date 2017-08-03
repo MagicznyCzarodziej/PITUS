@@ -17,6 +17,7 @@ html, body{
 body {
   display: flex;
   margin: 0;
+  user-select: none;
 }
 button{
   padding: 0.3rem 0.5rem;

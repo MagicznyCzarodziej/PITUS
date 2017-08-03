@@ -116,6 +116,7 @@
 }
 #find-locker-section input[type=radio] + label{
   border-bottom: 0.06rem solid #fff;
+  cursor: pointer;
   transition: 0.2s;
 }
 #find-locker-section input[type=radio]:checked + label{
@@ -156,4 +157,19 @@
 }
 .input-locker-class{
   text-transform: uppercase;
+}
+
+/* Change year section */
+#unlock-year-change-btn{
+  margin-right: 1rem;
+}
+#year-change-btn.locked{
+  color: #b0b0b0;
+  border-color: #b0b0b0;
+}
+#year-change-btn.locked:hover,
+#year-change-btn.locked:active,
+#year-change-btn.locked:focus{
+  background-color: transparent;
+  cursor: default;
 }
