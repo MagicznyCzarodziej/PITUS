@@ -11,7 +11,10 @@ $('#found-lockers-list').on('click', 'button', (event) => {
 });
 
 //Input any data
-$('#find-locker-inputs').keyup(() => {
+$('#find-locker-inputs').keyup(findLockers);
+
+findLockers();
+function findLockers() {
   let number, surname, name, classCode;
   number = $('#find-locker-number').val();
   surname = $('#find-locker-surname').val().toLowerCase();
@@ -39,7 +42,7 @@ $('#find-locker-inputs').keyup(() => {
     let lockerDOM = $(`<div class="found-locker empty-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
     for(let owner of locker.owners){
       if(!$.isEmptyObject(owner)){
-        let ownerDOM = $(`<div class-"found-locker-owner">${owner.surname} ${owner.name} <span style="text-transform: uppercase;">${owner.class}</span></div>`);
+        let ownerDOM = $(`<div class="found-locker-owner">${owner.surname} ${owner.name} <span style="text-transform: uppercase;">${owner.class}</span></div>`);
         lockerDOM.removeClass('empty-locker');
         lockerDOM.append(ownerDOM);
       }
@@ -81,9 +84,11 @@ $('#find-locker-inputs').keyup(() => {
       return false;
     });
   }
-});
+}
 
-$('.find-type').on('click', changeVisibleLockers);
+
+
+$('.find-type').on('click', findLockers);
 
 function changeVisibleLockers() {
   let type = $('input[name="find-type"]:checked').val();

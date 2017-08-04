@@ -5,12 +5,26 @@ const fs = require('fs');
 let printWindow;
 let save_pdf_path;
 
-//Work in progress
+let template;
 
-/*$('#print-btn').on('click', () => {
+updatePrintTemplate = function() {
+  $.get('print-template.html', function(data) {
+    template = $(data);
+    template.find('#list').append($('#found-lockers-list').html());
+    template = $('<div/>').append($(template).clone()).html();
+
+    createPreviewWindow();
+  }, 'html');
+}
+
+$('#print-btn').on('click', () => {
   $('#print-btn').blur();
-  printWindow = new BrowserWindow({'auto-hide-menu-bar':true});
-  printWindow.loadURL('file://' + __dirname + '/print.html');
+   updatePrintTemplate();
+});
+
+function createPreviewWindow() {
+  printWindow = new BrowserWindow({'auto-hide-menu-bar': true});
+  printWindow.loadURL("data:text/html;charset=utf-8," + encodeURI(template));
   printWindow.show();
 
   printWindow.webContents.on('did-finish-load', savePDF);
@@ -18,13 +32,13 @@ let save_pdf_path;
   printWindow.on('closed', () => {
     printWindow = null;
   });
-});*/
+}
 
 function getPDFPrintSettings() {
   var option = {
     landscape: false,
     marginsType: 0,
-    printBackground: false,
+    printBackground: true,
     printSelectionOnly: false,
     pageSize: 'A4',
   };
@@ -38,7 +52,8 @@ function savePDF() {
     return;
   }
 
-  dialog.showSaveDialog(printWindow, {title: "Zapis"}, (file_path) => {
+  dialog.showSaveDialog(printWindow, {title: "Zapis", defaultPath: "Lista szafek.pdf", filters: [{name: 'Plik PDF', extensions: ['pdf']
+    }]}, (file_path) => {
     if (file_path) {
       printWindow.webContents.printToPDF(getPDFPrintSettings(), (err, data) => {
         if (err) {
