@@ -1,24 +1,36 @@
 const jsonq = require('json-query');
 
 let number; //Selected locker number
+let choices = [];
+
+//Autocomplete
+let complete = new autoComplete({
+  selector: '#manage-locker-number',
+  minChars: 1,
+  source: function (term, suggest) {
+    let matches = [];
+    for(let i = 0; i < choices.length; i++)
+      if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+    suggest(matches);
+  },
+  onSelect: function (e, term, item) {
+    loadOwners(term);
+  }
+});
+
+$('#manage-locker-number').change( function () {
+  let nr = $('#manage-locker-number').val();
+  loadOwners(nr);
+});
 
 //Reload autocomplete suggestions when opening section
 $('#manage-locker-section').on('click', () => {
-  let numbers = [];
-  for(let locker of lockers){
-    numbers.push({value: String(locker.nr), data: locker.nr});
-  }
-
-  $("#manage-locker-number").autocomplete({
-    lookup: numbers,
-    autoSelectFirst: true,
-    onSelect: loadOwners
-  });
+  choices = [];
+  for(let locker of lockers) choices.push(String(locker.nr));
 });
 
-
 function loadOwners(suggestion) {
-  number = suggestion.data;
+  number = suggestion;
   let owners = jsonq(`[nr=${number}]`, {data: lockers}).value.owners;
 
   if(owners[0]){

@@ -57,33 +57,6 @@ h1{
   box-shadow: 0px 0px 3px #b3b3b3;
 }
 
-/* Autocomplete */
-.autocomplete-suggestions{
-  border: 1px solid #999;
-  border-top: none;
-  background: #FFF;
-  overflow: auto;
-}
-.autocomplete-suggestion{
-  padding: 2px 5px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.autocomplete-selected{
-  background: #F0F0F0;
-}
-.autocomplete-suggestions strong{
-  font-weight: normal;
-  color: #16a085;
-}
-.autocomplete-group{
-  padding: 2px 5px;
-}
-.autocomplete-group strong{
-  display: block;
-  border-bottom: 1px solid #000;
-}
-
 #author{
   position: absolute;
   font-size: 0.7rem;

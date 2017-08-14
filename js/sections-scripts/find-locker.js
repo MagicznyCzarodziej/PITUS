@@ -7,11 +7,15 @@ $('#found-lockers-list').on('click', 'button', (event) => {
 
   $('#nav-main button[data-section="manage-locker"]').trigger('click');
   $('#manage-locker-number').val(number);
+  $('#manage-locker-number').change();
   $('#manage-locker-number').focus();
 });
 
 //Input any data
 $('#find-locker-inputs').keyup(findLockers);
+
+//Reload data when opening section
+$('#nav-main button[data-section="find-locker"]').on('click', findLockers);
 
 findLockers();
 function findLockers() {
@@ -41,7 +45,7 @@ function findLockers() {
   for(let locker of foundLockers){
     let lockerDOM = $(`<div class="found-locker empty-locker"><div class="found-locker-number">${locker.nr}</div></div>`);
     for(let owner of locker.owners){
-      if(!$.isEmptyObject(owner)){
+      if(!owner.surname == ""){
         let ownerDOM = $(`<div class="found-locker-owner">${owner.surname} ${owner.name} <span style="text-transform: uppercase;">${owner.class}</span></div>`);
         lockerDOM.removeClass('empty-locker');
         lockerDOM.append(ownerDOM);
