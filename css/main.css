@@ -83,3 +83,11 @@ h1{
   display: block;
   border-bottom: 1px solid #000;
 }
+
+#author{
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.4;
+  right: 0.4rem;
+  bottom: 0.4rem;
+}
