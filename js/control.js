@@ -6,7 +6,7 @@ showInfo = function(section, type, text, time) {
   time = time < 1000 ? 1000 : time;
   $(`.msg.${type}`).remove();
   const infoDOM = $(`<div class="msg ${type}">${text}</div>`);
-  $(`#${section}-section .workplace`).append(infoDOM);
+  $(`#${section}-section .workplace:last-of-type`).append(infoDOM);
   $(infoDOM).delay(time-1000).fadeOut(1000);
   setTimeout(() => {
     $(infoDOM).remove();

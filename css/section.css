@@ -38,6 +38,9 @@
   float: left;
   margin-right: 0.5rem;
 }
+.inline-bnt{
+  margin-left: 1rem;
+}
 
  /*This was "add third owner btn"*/
 
@@ -122,15 +125,6 @@
 #find-locker-section input[type=radio]:checked + label{
   color: #16a085;
   border-bottom: 0.06rem solid #16a085;
-}
-/* Create locker section */
-#create-locker-btn{
-  margin-left: 1rem;
-}
-
-/* Remove locker section */
-#remove-locker-btn{
-  margin-left: 1rem;
 }
 
 /* Manage locker section */
