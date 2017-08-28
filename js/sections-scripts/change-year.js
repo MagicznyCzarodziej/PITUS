@@ -11,23 +11,25 @@ $('#unlock-year-change-btn').on('click', () => {
 $('#year-change-btn').on('click', () => {
   if(locked) return;
 
-  //If class < 4 class++ else remove owner from the locker.
-  //TODO: Refactor this shit
-  for(let locker in lockers){
-    for(let owner in lockers[locker].owners){
-      if(lockers[locker].owners[owner].hasOwnProperty('class')){
-        let oldClassNr = parseInt(lockers[locker].owners[owner].class.charAt(0));
-        let classFirstLetter = lockers[locker].owners[owner].class.charAt(1).toLowerCase();
+  for(let lockerIndex in lockers){
+    let locker = lockers[lockerIndex];
+    for(let ownerIndex in locker.owners){
+      let owner = locker.owners[ownerIndex];
+      if(owner.hasOwnProperty('class')){
+        let oldClassNr = parseInt(owner.class.charAt(0));
+        let classFirstLetter = owner.class.charAt(1).toLowerCase();
         let maxYears = 4;
         if(classFirstLetter === "z") maxYears = 3;
+
         if(oldClassNr < maxYears){
-          let newClass = (oldClassNr+1) + lockers[locker].owners[owner].class.substr(1);
-          lockers[locker].owners[owner].class = newClass;
-        } else lockers[locker].owners[owner] = {};
+          let newClass = (oldClassNr + 1) + owner.class.substr(1);
+          lockers[lockerIndex].owners[ownerIndex].class = newClass;
+        } else lockers[lockerIndex].owners[ownerIndex] = {};
       }
     }
   }
 
+  updateStats();
   storage.saveFile(lockers);
 
   $('#year-change-btn').remove();

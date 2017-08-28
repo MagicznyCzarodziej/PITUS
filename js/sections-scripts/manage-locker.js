@@ -60,7 +60,7 @@ $('#manage-locker-btn').on('click', (event) => {
 
   //Save changes to lockers variable
   let ownerObj;
-  ownerObj = lockers[lockerNumber].owners[0];
+  ownerObj = lockers[lockerNumber].owners[0]; // Pass owner object reference to variable
   ownerObj.surname = $('#manage-locker-owner1-surname').val().toLowerCase();
   ownerObj.name = $('#manage-locker-owner1-name').val().toLowerCase();
   ownerObj.class = $('#manage-locker-owner1-class').val().toLowerCase();
