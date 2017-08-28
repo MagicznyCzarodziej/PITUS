@@ -18,25 +18,8 @@ header{
 .found-locker{
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
   padding: 0.5rem 1rem;
-  border-left: 0.04rem solid #dedede;
-  border-right: 0.04rem solid #dedede;
-}
-.found-locker:first-child{
   border: 0.04rem solid #dedede;
-  border-bottom: none;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-}
-.found-locker:last-child{
-  border: 0.04rem solid #dedede;
-  border-top: none;
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
-}
-.found-locker:nth-child(even){
-  background-color: #e8e8e8;
 }
 .found-locker-number{
   flex: 1;
@@ -50,7 +33,12 @@ button{
   display: none;
 }
 </style>
-  <header>Lista szafek</header>
+  <header>Lista szafek
+    <script>
+      let date = new Date().toISOString().slice(0, 10);
+      document.write(date);
+    </script>
+  </header>
   <div id="containter">
     <div id="list">
 

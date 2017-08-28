@@ -74,6 +74,7 @@ $('#manage-locker-btn').on('click', (event) => {
   updateStats();
 
   showInfo('manage-locker', 'success', 'Zapisano!');
+  $('#manage-locker-number').focus();
 });
 
 function isFilled (owner) {
@@ -81,3 +82,9 @@ function isFilled (owner) {
         $(`#manage-locker-owner${owner+1}-name`).val() &&
         $(`#manage-locker-owner${owner+1}-class`).val();
 }
+
+//Clear inputs
+$('#manage-locker-clear-btn').on('click', (event) => {
+  $(event.target).blur();
+  $('#manage-locker-section .owners input').val('');
+});
