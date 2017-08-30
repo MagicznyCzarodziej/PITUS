@@ -33,13 +33,15 @@ input{
   border-bottom: solid 0.07rem #16a085;
   transition: border-color 0.2s;
   outline: none;
+  padding: 0;
 }
 input:focus{
   border-color: #1cd4b0;
   outline: none;
 }
 label{
-  margin-right: 0.5rem;
+  /*margin-right: 0.5rem;*/
+  color: #7e7e7e;
 }
 h1, h2, h3{
   margin: 0;

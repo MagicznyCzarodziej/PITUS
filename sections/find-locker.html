@@ -6,15 +6,20 @@
     </header>
     <div class="workplace">
       <div id="find-locker-inputs">
-        <div class="protip">Wypełnij dowolne jedno lub kilka pól</div>
-        <label for="find-number">Numer szafki:</label><input type="text" name="find-number" id="find-locker-number" class="input-locker-number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br><br>
-        <label for="find-surname"> Nazwisko:</label><input type="text" name="find-surname" id="find-locker-surname" class="input-locker-surname">
-        <label for="find-name"> Imię:</label><input type="text" name="find-name" id="find-locker-name" class="input-locker-name">
-        <label for="find-class"> Klasa:</label><input type="text" name="find-class" id="find-locker-class" class="input-locker-class">
+        <!-- <div class="protip">Wypełnij dowolne jedno lub kilka pól</div> -->
+        <label for="find-number">Numer szafki:</label><input type="text" name="find-number" id="find-locker-number" class="input-locker-number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+        <span id="find-type-inputs">
+          <input type="radio" class="find-type" name="find-type" id="find-all" value="all" checked><label for="find-all">Wszystkie</label>
+          <input type="radio" class="find-type" name="find-type" id="find-not-empty" value="not-empty"><label for="find-not-empty">Zajęte</label>
+          <input type="radio" class="find-type" name="find-type" id="find-empty" value="empty"><label for="find-empty">Puste</label>
+        </span><br><br>
+        <div id="find-locker-credentials">
+          <label for="find-surname"> Nazwisko:</label><input type="text" name="find-surname" id="find-locker-surname" class="input-locker-surname">
+          <label for="find-name"> Imię:</label><input type="text" name="find-name" id="find-locker-name" class="input-locker-name">
+          <label for="find-class"> Klasa:</label><input type="text" name="find-class" id="find-locker-class" class="input-locker-class">
+        </div>
       </div>
-      <input type="radio" class="find-type" name="find-type" id="find-all" value="all" checked><label for="find-all">Wszystkie</label>
-      <input type="radio" class="find-type" name="find-type" id="find-not-empty" value="not-empty"><label for="find-not-empty">Zajęte</label>
-      <input type="radio" class="find-type" name="find-type" id="find-empty" value="empty"><label for="find-empty">Puste</label>
+
       <div id="lockers-not-found" class="msg info" style="display: none;">Nie znaleziono pasującej szafki</div>
       <div id="found-lockers-list">
 

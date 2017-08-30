@@ -1,21 +1,21 @@
 <template class="template">
   <section class="section" id="manage-locker-section">
     <header class="section-header">
-      <button type="button" name="manage-locker-clear-btn" class="general-btn" id="manage-locker-clear-btn" style="float: right;"><img src="img/delete.svg" height="25" width="25" style="float: right; margin-right: 0; margin-left: 0.5rem;">Wyczyść</button>
       <h1>Zarządzaj szafką</h1>
     </header>
     <div class="workplace">
-      <label for="manage-locker-number">Numer szafki:</label><input type="text" name="manage-locker-number" id="manage-locker-number" class="input-locker-number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'><br>
+      <label for="manage-locker-number">Numer szafki:</label><input type="text" name="manage-locker-number" id="manage-locker-number" class="input-locker-number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      <button type="button" name="manage-locker-clear-btn" class="mini-btn" id="manage-locker-clear-btn" style="float: right; margin-right: 1rem;"><img src="img/delete.svg" height="25" width="25" style="float:left; margin-right: 0.5rem; opacity: 0.5;">Wyczyść pola</button>
       <div class="owners">
         <div class="owner-inputs">
-          <label for="manage-locker-owner1-surname">Nazwisko:</label><input type="text" id="manage-locker-owner1-surname" class="manage-locker-owner1 input-locker-surname"><br>
-          <label for="manage-locker-owner1-name">Imię:</label><input type="text" id="manage-locker-owner1-name" class="manage-locker-owner1 input-locker-name"><br>
-          <label for="manage-locker-owner1-class">Klasa:</label><input type="text" id="manage-locker-owner1-class" class="manage-locker-owner1 input-locker-class">
+          <div class="owner-input"><label for="manage-locker-owner1-surname">Nazwisko:</label><input type="text" id="manage-locker-owner1-surname" class="manage-locker-owner1 input-locker-surname"></div>
+          <div class="owner-input"><label for="manage-locker-owner1-name">Imię:</label><input type="text" id="manage-locker-owner1-name" class="manage-locker-owner1 input-locker-name"></div>
+          <div class="owner-input"><label for="manage-locker-owner1-class">Klasa:</label><input type="text" id="manage-locker-owner1-class" class="manage-locker-owner1 input-locker-class"></div>
         </div>
         <div class="owner-inputs">
-          <label for="manage-locker-owner2-surname">Nazwisko:</label><input type="text" id="manage-locker-owner2-surname" class="manage-locker-owner2 input-locker-surname"><br>
-          <label for="manage-locker-owner2-name">Imię:</label><input type="text" id="manage-locker-owner2-name" class="manage-locker-owner2 input-locker-name"><br>
-          <label for="manage-locker-owner2-class">Klasa:</label><input type="text" id="manage-locker-owner2-class" class="manage-locker-owner2 input-locker-class">
+          <div class="owner-input"><label for="manage-locker-owner2-surname">Nazwisko:</label><input type="text" id="manage-locker-owner2-surname" class="manage-locker-owner2 input-locker-surname"></div>
+          <div class="owner-input"><label for="manage-locker-owner2-name">Imię:</label><input type="text" id="manage-locker-owner2-name" class="manage-locker-owner2 input-locker-name"></div>
+          <div class="owner-input"><label for="manage-locker-owner2-class">Klasa:</label><input type="text" id="manage-locker-owner2-class" class="manage-locker-owner2 input-locker-class"></div>
         </div>
       </div>
       <button type="button" name="manage-locker-btn" class="general-btn" id="manage-locker-btn"><img src="img/check.svg" height="25" width="25">Zatwierdź</button>
