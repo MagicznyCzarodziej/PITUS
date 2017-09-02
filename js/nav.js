@@ -21,3 +21,10 @@ function hideAllSectionsAndDeselectButtons(event) {
     $(button).removeClass('is-selected');
   });
 }
+
+//Author github link
+const {shell} = require('electron');
+
+$('#author').on('click', () => {
+  shell.openExternal("https://github.com/MagicznyCzarodziej/PITUS");
+});

@@ -62,7 +62,12 @@ h1{
 #author{
   position: absolute;
   font-size: 0.7rem;
-  opacity: 0.4;
+  color: #a2a2a2;
   right: 0.4rem;
   bottom: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#author:hover{
+  color: #16a085;
 }
