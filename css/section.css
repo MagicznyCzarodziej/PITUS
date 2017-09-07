@@ -71,6 +71,7 @@
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 0.2rem;
+  text-align: center;
 }
 .info{
   color: #7f8c8d;
@@ -102,7 +103,7 @@
   overflow-y: scroll;
 }
 #find-locker-class{
-  width: 2.5rem;
+  width: 2.4rem;
 }
 .found-locker{
   display: flex;
@@ -140,6 +141,7 @@
 #find-locker-credentials label{
   padding-right: 0.5rem;
 }
+
 /* Manage locker section */
 #manage-locker-section .workplace{
   text-align: left;
@@ -153,7 +155,6 @@ label[for="manage-locker-number"]{
 
 .owners{
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 1rem;
   text-align: left;
   justify-content: space-around;
