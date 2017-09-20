@@ -23,6 +23,11 @@ $('#manage-locker-number').change( function () {
   loadOwners(nr);
 });
 
+//Autofill class
+$('#manage-locker-owner1-class').change(() => {
+    $('#manage-locker-owner2-class').val($('#manage-locker-owner1-class').val());
+});
+
 //Reload autocomplete suggestions when opening section
 $('#manage-locker-section').on('click', () => {
   choices = [];

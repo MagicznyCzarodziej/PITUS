@@ -4,8 +4,9 @@
     <h1>Zmień rok szkolny</h1>
   </header>
   <div class="workplace">
-    <button class="general-btn" id="unlock-year-change-btn"><img src="img/lock.svg" height="24" width="24">Odblokuj</button><button type="button" class="general-btn locked" id="year-change-btn" tabindex="-1"><img src="img/up.svg" height="24" width="24">Podnieś wszystkie klasy o 1</button>
-    <div class="msg info">Przed wykonaniem tej operacji <b>obniż klasę</b> uczniom, którzy nie zdali!<br>Uczniowie klas czwartych (i trzecich, których nazwa zaczyna się od "Z") zostaną <b>usunięci!</b></div>
+    <div id="classes-list"></div>
+    <button type="button" class="general-btn " id="year-change-btn" tabindex="-1"><img src="img/up.svg" height="24" width="24">Podnieś wszystkie klasy o 1</button>
+    <div class="msg info">Przed wykonaniem tej operacji zrób kopię zapasową poprzez zakładkę <b>IMPORT/EXPORT</b>, a następnie <b>obniż klasę</b> uczniom, którzy nie zdali! Potem usuń klasy które ukończyły szkołę z listy po lewej stronie. <u id="help-year-change">Kliknij tutaj, aby uzyskać więcej pomocy.</u></div>
   </div>
 </section>
 </template>

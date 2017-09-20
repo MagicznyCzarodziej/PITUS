@@ -28,3 +28,12 @@ const {shell} = require('electron');
 $('#author').on('click', () => {
   shell.openExternal("https://github.com/MagicznyCzarodziej/PITUS");
 });
+
+$('#help').on('click', () => {
+  shell.openExternal("https://github.com/MagicznyCzarodziej/PITUS#funkcje");
+});
+
+
+$('#help-year-change').on('click', () => {
+  shell.openExternal("https://github.com/MagicznyCzarodziej/PITUS#jak-zmienić-rocznik");
+});
