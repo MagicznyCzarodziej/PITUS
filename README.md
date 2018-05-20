@@ -1,5 +1,8 @@
 # P.I.T.U.S. - Program Indeksujący Tylko Uczniowskie Szafki
 ### P.I.T.U.S. to aplikacja służąca do zarządzania szkolnymi szafkami
+
+![P.I.T.U.S.](https://i.imgur.com/uUWtUHR.png)
+
 ## Funkcje
 - Dodawanie/Usuwanie szafek
 - Edycja 2 właścicieli każdej szafki
