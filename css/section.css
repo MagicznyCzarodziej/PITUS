@@ -100,6 +100,10 @@
 }
 #find-locker-class{
   width: 2.4rem;
+  text-align: center;
+}
+#find-locker-number {
+  margin-right: 2rem;
 }
 .found-locker{
   display: flex;
@@ -124,6 +128,23 @@
 #find-locker-inputs input[type=radio]{
   display: none;
 }
+#find-class-exactly{
+  width: 0.7rem;
+}
+#find-exactly-inputs label{
+  border-bottom: solid 0.07rem #16a085;
+  margin-bottom: 1rem;
+}
+#find-exactly-inputs input[type=radio] + label{
+  border-bottom: 0.06rem solid #fff;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+}
+#find-exactly-inputs input[type=radio]:checked + label{
+  color: #16a085;
+  border-bottom: 0.06rem solid #16a085;
+}
 #find-locker-inputs input[type=radio] + label{
   border-bottom: 0.06rem solid #fff;
   cursor: pointer;
@@ -137,7 +158,9 @@
 #find-locker-credentials label{
   padding-right: 0.5rem;
 }
-
+#find-locker-credentials input{
+  width: 11.7rem;
+}
 /* Manage locker section */
 #manage-locker-section .workplace{
   text-align: left;

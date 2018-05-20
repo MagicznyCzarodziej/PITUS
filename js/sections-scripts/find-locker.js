@@ -14,6 +14,9 @@ $('#found-lockers-list').on('click', 'button', (event) => {
 //Input any data
 $('#find-locker-inputs').keyup(findLockers);
 
+// //Check checkbox
+$('#find-exactly-inputs input').on('click', findLockers);
+
 //Reload data when opening section
 $('#nav-main button[data-section="find-locker"]').on('click', findLockers);
 
@@ -81,16 +84,18 @@ function findLockers() {
   }
 
   function checkClass() {
+    let classExactly = $('input[name="find-exactly"]:checked').val() === "exactly";
     return foundLockers.filter(locker => {
       for(let owner of locker.owners){
-        if(owner.hasOwnProperty('class') && owner.class.startsWith(classCode)) return true;
+        if(owner.hasOwnProperty('class')) {
+          if(classExactly && owner.class == classCode) return true;
+          else if (!classExactly && owner.class.startsWith(classCode)) return true;
+        }
       }
       return false;
     });
   }
 }
-
-
 
 $('.find-type').on('click', findLockers);
 
